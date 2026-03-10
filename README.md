@@ -76,11 +76,11 @@ A nested complex ESTN message, note how size is used with the email text command
 ```
 !21;
 { "cmd":"sendEmail" }
-!33;
-{ "cmd":"emailText" "size": 16 }
+!34;
+{ "cmd":"emailText", "size": 16 }
 Some plain text
-!39;
-{ "cmd":"emailAttachment" "size": 54 }
+!40;
+{ "cmd":"emailAttachment", "size": 54 }
 )&@#LK!#J%LKHASR@#LKJ
 -- not a real image #$%LK#J%^
 ```
@@ -100,7 +100,7 @@ A example with an extended 3 line header.
 
 
 ```
-{ "cmd":"sendData" "lines": 3 }
+{ "cmd":"sendData", "lines": 3 }
 { "dateSent": "2026-03-10" }
 { "sequenceNbr": 3 }
 <?xml version="1.0" encoding="UTF-8"?>
