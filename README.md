@@ -35,11 +35,11 @@ Plain Text Message
 
 ##### Use of ASCI-7/UTF-8
 
-Although not a hard requirement, the use of ASCII7/UTF-8 (NOT UTF-8 extended characters) only is highly recommended in the header. This simply maps bytes to characters and reduces processing time.
+Although not a hard requirement, the use of only ASCII7/UTF-8 (NOT UTF-8 extended characters) is highly recommended in the header. This simply maps bytes to characters and reduces processing time.
 
 ### Header Lines
 
-A single line or pair of lines is expected, however this can be changed with the lines header key.
+A single line or pair of lines is expected, however this can be changed with the [lines header key](#lines).
 
 ### Header Keys
 
@@ -51,7 +51,7 @@ Short for command, the optional 'cmd' key identifies how to route this message i
 
 ##### size
 
-The optional 'size' key identifies the number of bytes in the body.  This can be particularly useful when transporting arbitrary bytes.
+The optional 'size' key identifies the number of bytes in the body.  This can be particularly useful when transporting arbitrary bytes.  In particular, for images and other binary data
 
 ##### lines
 
@@ -62,11 +62,9 @@ If the first line in this header is a number, indicating that this header has a 
 
 It is generally recommended not to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive JSON, or a ESTM tree.
 
-
-
 ### Examples
 
-The simplest ESTN text message;
+The simplest ESTN text message, with a empty header;
 
 ```
 {}
@@ -87,7 +85,7 @@ Some plain text
 -- not a real image #$%LK#J%^
 ```
 
-A example with Ten64, note the l in the first line turns into a 21.  Also note, that all ESTN parsers are NOT likely to have support for Ten64.
+A example with Ten64, note the l after the pound symbol (#) in the first line turns into a 21.  Also note, that all ESTN parsers are NOT likely to have support for Ten64.
 
 ```
 #l;
@@ -98,7 +96,7 @@ A example with Ten64, note the l in the first line turns into a 21.  Also note, 
 }
 ```
 
-A example with an extended header.
+A example with an extended 3 line header.
 
 
 ```
