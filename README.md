@@ -100,6 +100,8 @@ A example with Ten64, note the l in the first line turns into a 21.  Also note, 
 
 ### Compatibility with other technologies.
 
+ESTN is designed for swappable transport layers!  It should be compatible with HTTP/1.1, HTTP/2, WebSockets, Kafka, PubSub and plain old sockets.
+
 ESTN is designed to be compatible with just about anything, including XML schemas, JSON schemas, CSV files, Google Protocol Buffers, binary images, zip files that include some of the above in a simple format that is highly configurable and extensible.
 
 
