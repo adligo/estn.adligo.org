@@ -90,7 +90,7 @@ Some plain text
 A example with Ten64, note the l in the first line turns into a 21.  Also note, that all ESTN parsers are NOT likely to have support for Ten64.
 
 ```
-!l;
+#l;
 { "cmd":"sendData" }
 { "name": "George", 
   "age": 23
