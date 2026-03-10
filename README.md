@@ -14,10 +14,10 @@ The header is comprised of lines or line pairs, each terminated by a UNIX Line F
 
 ##### Header Line First Characters
 
-  #!;  The exclamation mark identifies this line as a simple Arabic integer number terminated by a semicolon.
-  #\#; The pound symbol identifies this line as a Ten64 number terminated by a semicolon.
-  #{;  The left curly brace identifies this line as a JSON line.
-  #[;  The left square bracket identifies this line as a JSON line.
+ - <b>!</b>  The exclamation mark identifies this line as a simple Arabic integer number terminated by a semicolon.
+ - <b>#</b> The pound symbol identifies this line as a Ten64 number terminated by a semicolon.
+ - <b>{</b>  The left curly brace identifies this line as a JSON line.
+ - <b>[</b>  The left square bracket identifies this line as a JSON line.
 
 The purpose of lines that start either with an exclamation mark or a pound symbol is simply to identify the number of bytes in the subsequent line.  For example, the two in the following code identifies that the subsequent line with '{}' only has 2 bytes;
 
@@ -57,6 +57,11 @@ The optional 'size' key identifies the number of bytes in the body.  This can be
 
 The optional 'lines' key identifies the number of lines or line pairs in the header.  
 If the first line in this header is a number, indicating that this header has a line pair for the first section, then this indicates the number of line pairs.  If the first line in this header is a JSON line, then this indicates the number of JSON lines in the header.  
+
+### Extending the keys
+
+It is generally recommended not to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive JSON, or a ESTM tree.
+
 
 
 ### Examples
