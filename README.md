@@ -10,7 +10,7 @@ ESTN it is comprised of header and body sections. The header section is extremel
 
 ### Header Details
 
-The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal]()). Each line may have an optimization for parsing, or may be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when number prefixes exist. To clarify, the first character of each line in the header must be one of the following:
+The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal](#hexadecimal)). Each line may have an optimization for parsing, or may be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when number prefixes exist. To clarify, the first character of each line in the header must be one of the following:
 
 ##### Header Line First Characters
 
