@@ -124,4 +124,4 @@ ESTN is designed to be compatible with just about anything, including XML schema
 
 ### Commentary 
 
-ESTN started out as ASBP, Asynchronous Services Bus Protocol ASBP.  Then for a time, I debated on whether it would use classification markup notation CMN.  It was also, partially inspired by the [JSON lines project](https://jsonlines.org/). 
+ESTN started out as part of [ASBP (Asynchronous Services Bus Protocol)](https://datatracker.ietf.org/doc/draft-adligo-hybi-asbp/).  Then for a time, I debated on whether it would use [classification markup notation CMN](https://github.com/adligo/cmn.adligo.org).  It was also, partially inspired by the [JSON lines project](https://jsonlines.org/). 
