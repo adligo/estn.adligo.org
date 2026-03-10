@@ -2,7 +2,7 @@
 
 ### Abstract
 
-ESTN is a simple, binary, hybrid [UTF-8](#utf8)text, context-free and content-sensitive grammar for encoding messages that will be transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity. It is built around a simple header and body structure; however, it is recursive so that the body may have an ESTN structure as well.
+ESTN is a simple, binary, hybrid [UTF-8 text](#utf8), context-free and content-sensitive grammar for encoding messages that will be transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity. It is built around a simple header and body structure; however, it is recursive so that the body may have an ESTN structure as well.
 
 ### Structure Overview
 
@@ -10,16 +10,16 @@ ESTN it is comprised of header and body sections. The header section is extremel
 
 ### Header Details
 
-The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal]()). Each line may have an optimization for parsing, or may be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when line pairs exist. In addition, the first character of each line in the header must be one of the following:
+The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal]()). Each line may have an optimization for parsing, or may be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when number prefixes exist. To clarify, the first character of each line in the header must be one of the following:
 
 ##### Header Line First Characters
 
-* **0-9** Arabic numerals which identify the number of bytes in this line.
-* **#** The pound symbol identifies this line as a [Ten64](https://github.com/adligo/ten64.adligo.org) number, which identifies the number of bytes in this line.
-* **{** The left curly brace identifies this line as a [JSON](https://www.google.com/url?sa=E&source=gmail&q=https://www.json.org/) line.
-* **[** The left square bracket identifies this line as a [JSON](https://www.google.com/url?sa=E&source=gmail&q=https://www.json.org/) line.
+* **0-9** Arabic numerals are a number prefix which identify the number of bytes in this line.
+* **#** The pound symbol identifies this number prefix as a [Ten64](https://github.com/adligo/ten64.adligo.org) number, which identifies the number of bytes in this line.
+* **{** The left curly brace identifies this line as a [JSON](#json) line.
+* **[** The left square bracket identifies this line as a [JSON](#json) line.
 
-The purpose of including the number of bytes per line, either with Ten64 or Arabic numerals, is simply an optimization for ESTN parsers. For example, the two in the following code identifies that the subsequent line with '3{}' only has 3 bytes;
+The purpose of including the number of bytes per line, either with Ten64 or Arabic numerals, is simply an optimization for ESTN parsers. For example, the three in the following code identifies that the subsequent line with '3{}' only has 3 bytes;
 
 ```
 3{}
@@ -61,7 +61,7 @@ If the first line in this header is a number, indicating that this header has a 
 
 ### Extending the keys
 
-It is generally recommended not to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive JSON, or a ESTM tree.
+It is generally recommended NOT to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive JSON, or a ESTM message or tree.
 
 ### Examples
 
@@ -138,8 +138,6 @@ ESTN is designed to be compatible with just about anything, including [XML schem
 
 ESTN started out as part of [ASBP (Asynchronous Services Bus Protocol)](https://datatracker.ietf.org/doc/draft-adligo-hybi-asbp/). Then for a time, I debated on whether it would use [classification markup notation CMN](https://github.com/adligo/cmn.adligo.org). It was also, partially inspired by the [JSON lines project](https://jsonlines.org/).
 
-
-
 # References 
 
 ###### Apache Kafka
@@ -168,6 +166,12 @@ ESTN started out as part of [ASBP (Asynchronous Services Bus Protocol)](https://
 - [Wikipedia](https://en.wikipedia.org/wiki/Protocol_Buffers)
 - [Github](https://github.com/protocolbuffers/protobuf)
 - [Medium](https://medium.com/javarevisited/what-are-protocol-buffers-and-why-they-are-widely-used-cbcb04d378b6)
+
+###### Hexadecimal
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Hexadecimal)
+- [Editor](https://cryptii.com/pipes/hex-decoder)
+- [Math World](https://mathworld.wolfram.com/Hexadecimal.html)
 
 ###### HTTP
 
@@ -199,6 +203,8 @@ ESTN started out as part of [ASBP (Asynchronous Services Bus Protocol)](https://
 - [Postman](https://blog.postman.com/what-is-json-schema/)
 - [MongoDB](https://www.mongodb.com/resources/languages/json-schema-examples)
 - [GitHub](https://cswr.github.io/JsonSchema/spec/definitions_references/)
+
+###### Octal
 
 ###### Pub/Sub
 
