@@ -112,6 +112,25 @@ A example with an extended 3 line header.
 </note>
 ```
 
+A example with an optimized, extended 3 line header.
+
+
+```
+!33;
+{ "cmd":"sendData", "lines": 3 }
+!29;
+{ "dateSent": "2026-03-10" }
+!21;
+{ "sequenceNbr": 3 }
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+</note>
+```
+
 
 ### Compatibility with other technologies.
 
