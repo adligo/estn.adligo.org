@@ -10,7 +10,7 @@ ESTN it is comprised of header and body sections. The header section is extremel
 
 ### Header Details
 
-The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal](#hexadecimal)). Each line may have an optimization for parsing, or may be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when number prefixes exist. To clarify, the first character of each line in the header must be one of the following:
+The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal](#hexadecimal)). Each line MAY have an optimization for parsing, or MAY be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when number prefixes exist. To clarify, the first character of each line in the header must be one of the following:
 
 ##### Header Line First Characters
 
@@ -47,15 +47,15 @@ Although all header keys are optional, these are the main conventions.
 
 ##### cmd
 
-Short for command, the optional 'cmd' key identifies how to route this message inside of an application or service. When comparing this protocol to [REST](#rest), it is a partial replacement for the path part of the endpoint. It is not a replacement for the domain name or IP address, as those are abstracted away from this notation.
+Short for command, the optional <b>'cmd'</b> key identifies how to route this message inside of an application or service. When comparing this protocol to [REST](#rest), it is a partial replacement for the path part of the endpoint. It is not a replacement for the domain name or IP address, as those are abstracted away from this notation.
 
 ##### size
 
-The optional 'size' key identifies an integer, the number of bytes in the body. This can be particularly useful when transporting arbitrary bytes. In particular, for images and other binary data
+The optional <b>'size'</b> key identifies an integer, the number of bytes in the body. This can be particularly useful when transporting arbitrary bytes. In particular, for images and other binary data
 
 ##### lines
 
-The optional 'lines' key identifies the number of lines or line pairs in the header.
+The optional <b>'lines'</b> key identifies the number of lines or line pairs in the header.
 
 If the first line in this header is a number, indicating that this header has a line pair for the first section, then this indicates the number of line pairs. If the first line in this header is a JSON line, then this indicates the number of JSON lines in the header.
 
