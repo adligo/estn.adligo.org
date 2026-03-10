@@ -35,7 +35,7 @@ Plain Text Message
 
 ##### Use of ASCI-7/UTF-8
 
-Although not a hard requirement, the use of ASCII7 or UTF-8 is highly recommended in the header. This simply maps bytes to characters and reduces processing time
+Although not a hard requirement, the use of ASCII7/UTF-8 (NOT UTF-8 extended characters) only is highly recommended in the header. This simply maps bytes to characters and reduces processing time.
 
 ### Header Lines
 
