@@ -51,7 +51,7 @@ Short for command, the optional 'cmd' key identifies how to route this message i
 
 ##### size
 
-The optional 'size' key identifies the number of bytes in the body.  This can be particularly useful when transporting arbitrary bytes.  In particular, for images and other binary data
+The optional 'size' key identifies an integer, the number of bytes in the body.  This can be particularly useful when transporting arbitrary bytes.  In particular, for images and other binary data
 
 ##### lines
 
@@ -76,11 +76,11 @@ A nested complex ESTN message, note how size is used with the email text command
 ```
 !21;
 { "cmd":"sendEmail" }
-!34;
-{ "cmd":"emailText" "size": "16"}
+!33;
+{ "cmd":"emailText" "size": 16 }
 Some plain text
-!40;
-{ "cmd":"emailAttachment" "size": "54"}
+!39;
+{ "cmd":"emailAttachment" "size": 54 }
 )&@#LK!#J%LKHASR@#LKJ
 -- not a real image #$%LK#J%^
 ```
