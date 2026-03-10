@@ -98,6 +98,23 @@ A example with Ten64, note the l in the first line turns into a 21.  Also note, 
 }
 ```
 
+A example with an extended header.
+
+
+```
+{ "cmd":"sendData" "lines": 3 }
+{ "dateSent": "2026-03-10" }
+{ "sequenceNbr": 3 }
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+</note>
+```
+
+
 ### Compatibility with other technologies.
 
 ESTN is designed for swappable transport layers!  It should be compatible with HTTP/1.1, HTTP/2, WebSockets, Kafka, PubSub and plain old sockets.
