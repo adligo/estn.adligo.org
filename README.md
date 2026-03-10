@@ -93,7 +93,7 @@ A example with Ten64, note the l in the first line turns into a 21.  Also note, 
 #l;
 { "cmd":"sendData" }
 { "name": "George", 
-  "age": 23
+  "age": 23,
   "height": 5.75
 }
 ```
