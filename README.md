@@ -19,7 +19,7 @@ The header is comprised of lines or line pairs, each terminated by a UNIX Line F
  - <b>{</b>  The left curly brace identifies this line as a JSON line.
  - <b>[</b>  The left square bracket identifies this line as a JSON line.
 
-The purpose of lines that start either with an exclamation mark or a pound symbol is simply to identify the number of bytes in the subsequent line.  For example, the two in the following code identifies that the subsequent line with '{}' only has 2 bytes;
+The purpose of lines that start either with an exclamation mark or a pound symbol is simply to identify the number of bytes in the subsequent line.  This is a optimization for ESTN parsers.  For example, the two in the following code identifies that the subsequent line with '{}' only has 2 bytes;
 
 ```
 !2;
@@ -28,7 +28,7 @@ Plain Text Message
 ```
 
 ```
-!2;
+!24;
 { "cmd":"sendMessage" }
 Plain Text Message
 ```
@@ -78,13 +78,24 @@ A nested complex ESTN message, note how size is used with the email text command
 ```
 !21;
 { "cmd":"sendEmail" }
-!21;
+!34;
 { "cmd":"emailText" "size": "16"}
 Some plain text
 !40;
 { "cmd":"emailAttachment" "size": "54"}
 )&@#LK!#J%LKHASR@#LKJ
 -- not a real image #$%LK#J%^
+```
+
+A example with Ten64, note the l in the first line turns into a 21.  Also note, that all ESTN parsers are NOT likely to have support for Ten64.
+
+```
+!l;
+{ "cmd":"sendData" }
+{ "name": "George", 
+  "age": 23
+  "height": 5.75
+}
 ```
 
 ### Compatibility with other technologies.
