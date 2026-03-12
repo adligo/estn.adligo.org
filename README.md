@@ -2,30 +2,10 @@
 
 ### Abstract
 
-ESTN is a simple, binary, hybrid [UTF-8 text](#utf8), context-free and content-sensitive grammar for encoding messages that will be transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity. It is built around a simple header and body structure; however, it is recursive so that the body may have an ESTN structure as well.
+ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity. 
 
-### Structure Overview
 
-ESTN it is comprised of header and body sections. The header section is extremely formal; however, the body can be anything, including [JSON](https://www.google.com/url?sa=E&source=gmail&q=https://www.json.org/), [XML](https://www.google.com/search?q=https://www.w3.org/XML/), pure binary, and even a child ESTN structure.
-
-### Header Details
-
-The header is comprised of one or more lines, each terminated by a [UNIX Line Feed '\n'](#ascii), [ASCII](#ascii)/[UTF-8](#utf8) value of 10 (0x0A in [hexadecimal](#hexadecimal)). Each line MAY have an optimization for parsing, or MAY be nearly identical to the [JSON lines](#json-lines) model. However, this format has been optimized slightly for parsing when number prefixes exist. To clarify, the first character of each line in the header must be one of the following:
-
-##### Header Line First Characters
-
-* **0-9** Arabic numerals are a number prefix which identify the number of bytes in this line.
-* **#** The pound symbol identifies this number prefix as a [Ten64](https://github.com/adligo/ten64.adligo.org) number, which identifies the number of bytes in this line.
-* **{** The left curly brace identifies this line as a [JSON](#json) line.
-* **[** The left square bracket identifies this line as a [JSON](#json) line.
-
-The purpose of including the number of bytes per line, either with Ten64 or Arabic numerals, is simply an optimization for ESTN parsers. For example, the three in the following code identifies that the subsequent line with '3{}' only has 3 bytes;
-
-```
-3{}
-Plain Text Message
-
-```
+### Header Extension Details
 
 ```
 26{ "cmd":"sendMessage" }
@@ -37,9 +17,6 @@ Plain Text Message
 
 Although not a hard requirement, the use of only [ASCII-7](#ascii)/[UTF-8](#utf8) (NOT UTF-8 extended characters) is highly recommended in the header. This simply maps bytes to characters and reduces processing time.
 
-### Header Lines
-
-A single line or pair of lines is expected, however this can be changed with the [lines header key](#lines).
 
 ### Header Keys
 
@@ -49,29 +26,11 @@ Although all header keys are optional, these are the main conventions.
 
 Short for command, the optional <b>'cmd'</b> key identifies how to route this message inside of an application or service. When comparing this protocol to [REST](#rest), it is a partial replacement for the path part of the endpoint. It is not a replacement for the domain name or IP address, as those are abstracted away from this notation.
 
-##### size
-
-The optional <b>'size'</b> key identifies an integer, the number of bytes in the body. This can be particularly useful when transporting arbitrary bytes. In particular, for images and other binary data
-
-##### lines
-
-The optional <b>'lines'</b> key identifies the number of lines or line pairs in the header.
-
-If the first line in this header is a number, indicating that this header has a line pair for the first section, then this indicates the number of line pairs. If the first line in this header is a JSON line, then this indicates the number of JSON lines in the header.
-
 ### Extending the keys
 
 It is generally recommended NOT to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive JSON, or a ESTM message or tree.
 
 ### Examples
-
-The simplest ESTN text message, with a empty header;
-
-```
-{}
-Some plain text
-
-```
 
 A nested complex ESTN message, note how size is used with the email text command in order to split out binary that happens later in the nested ESTN message.
 
@@ -132,12 +91,6 @@ A example with an optimized, extended 3 line header.
 
 ESTN is designed for swappable transport layers! It should be compatible with [HTTP/1.1](#http), [HTTP/2](#http), [WebSockets](#websockets), [Apache Kafka](#apache-kafka), [Pub/Sub](#pub-sub) and plain old [sockets](#sockets)
 
-ESTN is designed to be compatible with just about anything, including [XML schemas](#xml), [JSON schemas](#json-schemas), [CSV](#csv) files, [Google Protocol Buffers](#google-protocol-buffers), binary images, zip files that include some of the above in a simple format that is highly configurable and extensible.
-
-### Commentary
-
-ESTN started out as part of [ASBP (Asynchronous Services Bus Protocol)](https://datatracker.ietf.org/doc/draft-adligo-hybi-asbp/). Then for a time, I debated on whether it would use [classification markup notation CMN](https://github.com/adligo/cmn.adligo.org). It was also, partially inspired by the [JSON lines project](https://jsonlines.org/).
-
 # References 
 
 ###### Apache Kafka
@@ -153,6 +106,10 @@ ESTN started out as part of [ASBP (Asynchronous Services Bus Protocol)](https://
 - [ASCII](https://www.ascii-code.com/)
 - [Wikipedia](https://en.wikipedia.org/wiki/ASCII)
 - [Table](https://www.asciitable.com/)
+
+###### EJCN
+
+- [EJCN](https://github.com/adligo/ejcn.adligo.org)
 
 ###### CSV
 
