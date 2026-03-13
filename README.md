@@ -7,6 +7,8 @@ ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from 
 
 ### Header Extension Details
 
+ESTN extends the [EJCN](#ejcn) optional header keys <b>'size'</b> and <b>'lines'</b> in order to include routing information with the <b>'cmd'</b> key.
+
 ```
 26{ "cmd":"sendMessage" }
 Plain Text Message
