@@ -2,7 +2,7 @@
 
 ### Abstract
 
-ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity.  This enhanced separation of concerns allows the ESTN messages to be delivered over [WebSockts](#websockets), [HTTP](#http), [Kafka](#apache-kafka), or plain old [sockets](#sockets).
+ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity.  This enhanced separation of concerns allows the ESTN messages to be delivered over [WebSockts](#websockets), [HTTP](#http), [Kafka](#apache-kafka), [Pub/Sub](#pub-sub) or plain old [sockets](#sockets).
 
 
 ### Header Extension Details
