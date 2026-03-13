@@ -2,7 +2,7 @@
 
 ### Abstract
 
-ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity. 
+ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity.  This enhanced separation of concerns allows the ESTN messages to be delivered over [WebSockts](#websockets), [HTTP](#http), [Kafka](#apache-kafka), or plain old [sockets](#sockets).
 
 
 ### Header Extension Details
@@ -32,19 +32,19 @@ It is generally recommended NOT to include some information about the data in th
 
 ### Examples
 
-A nested complex ESTN message, note how size is used with the email text command in order to split out binary that happens later in the nested ESTN message.
+A nested complex ESTN message, note how size is used with the email text command in order to split out binary that happens later in the nested [EJCN](#ejcn) message.
 
 ```
 24{ "cmd":"sendEmail" }
-36{ "cmd":"emailText", "size": 16 }
+37{ "part":"emailText", "size": 16 }
 Some plain text
-42{ "cmd":"emailAttachment", "size": 53 }
+43{ "part":"emailAttachment", "size": 53 }
 &@#LK!#J%LKHASR@#LKJ
 -- not a real image #$%LK#J%^
 
 ```
 
-A example with [Ten64](https://github.com/adligo/ten64.adligo.org), note the l after the pound symbol (#) in the first line turns into a 21. Also note, that all ESTN parsers are NOT likely to have support for Ten64.
+A example with [Ten64](https://github.com/adligo/ten64.adligo.org), note the l after the pound symbol (#) in the first line turns into a 21. Also note, that all [EJCN](#ejcn) parsers are NOT likely to have support for Ten64.
 
 ```
 #l{ "cmd":"sendData" }
