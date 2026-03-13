@@ -60,7 +60,7 @@ A example with [Ten64](https://github.com/adligo/ten64.adligo.org), note the low
 A example with an extended 3 line header.
 
 ```
-{ "cmd":"sendData", "lines": 3 }
+{ "cmd":"sendData", "headers": 3 }
 { "dateSent": "2026-03-10" }
 { "sequenceNbr": 3 }
 <?xml version="1.0" encoding="UTF-8"?>
@@ -76,7 +76,7 @@ A example with an extended 3 line header.
 A example with an optimized, extended 3 line header.
 
 ```
-35{ "cmd":"sendData", "lines": 3 }
+37{ "cmd":"sendData", "headers": 3 }
 31{ "dateSent": "2026-03-10" }
 23{ "sequenceNbr": 3 }
 <?xml version="1.0" encoding="UTF-8"?>
