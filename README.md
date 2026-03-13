@@ -2,7 +2,7 @@
 
 ### Abstract
 
-ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity.  This enhanced separation of concerns allows the ESTN messages to be delivered over [WebSockts](#websockets), [HTTP](#http), [Kafka](#apache-kafka), [Pub/Sub](#pub-sub) or plain old [sockets](#sockets).
+ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity.  This enhanced separation of concerns allows the ESTN messages to be delivered over [WebSockets](#websockets), [HTTP](#http), [Kafka](#apache-kafka), [Pub/Sub](#pub-sub) or plain old [sockets](#sockets).
 
 
 ### Header Extension Details
@@ -30,7 +30,7 @@ Short for command, the optional <b>'cmd'</b> key identifies how to route this me
 
 ### Extending the keys
 
-It is generally recommended NOT to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive JSON, or a ESTM message or tree.
+It is generally recommended NOT to include some information about the data in the headers like "dataType":"JSON", but instead simply route your requests to parts of your application or services that know they are going to receive [JSON](#json), or a [EJCM](#ejcn) message or tree.
 
 ### Examples
 
