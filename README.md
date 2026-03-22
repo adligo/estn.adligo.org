@@ -93,6 +93,22 @@ A example with an optimized, extended 3 line header.
 
 ESTN is designed for swappable transport layers! It should be compatible with [HTTP/1.1](#http), [HTTP/2](#http), [WebSockets](#websockets), [Apache Kafka](#apache-kafka), [Pub/Sub](#pub-sub) and plain old [sockets](#sockets)
 
+# IANA Considerations
+
+##### OID 1.3.6.1.4.1.33097.8.2
+##### File Extension .estn
+
+# Discussion Channel
+
+- [https://discord.gg/XQSvNDt7Cp](https://discord.gg/XQSvNDt7Cp)
+
+# Commentary
+
+On 2026-03-22 I was able to successfully submit a request to reserve the <b>.estn</b> file extension here, with the respective [values](iana_log/2026-03-22_ATTEMPT.md);
+
+- [https://www.iana.org/form/media-types](https://www.iana.org/form/media-types)
+
+
 # References 
 
 ###### Apache Kafka
