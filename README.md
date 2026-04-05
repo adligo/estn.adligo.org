@@ -1,5 +1,20 @@
 # Extensible Services Transport Notation (ESTN)
 
+## STATUS: De-prioritized
+
+Due to the ambiguity caused in part by the ECMA Script specification identified in JSON numbers detailed here; <br/>
+- [https://www.ietf.org/archive/id/draft-morgan-ten64-00.html#commentary](https://www.ietf.org/archive/id/draft-morgan-ten64-00.html#commentary)
+
+Work on this project has been de-prioritized and should shift to; <br/>
+- [https://github.com/adligo/stn.adligo.org](https://github.com/adligo/stn.adligo.org)
+
+Note: De-prioritization does NOT mean abandonment.  Should the JSON community become interested in adding a JSON v2 with additional types and clarification, or in other words a discrete decimal number system for serialization like ten10b;
+
+- [https://github.com/adligo/ten10b_v1.adligo.org](https://github.com/adligo/ten10b_v1.adligo.org)
+
+We would become interested in JSON again and resume work on this project.
+
+
 ### Abstract
 
 ESTN is an extension to [EJCN](#ejcn) designed for data transported to and from services. It is designed to reduce the reliance on the transport mechanism or protocol, commonly utilize by [REST](#rest), and separate concerns with greater granularity.  This enhanced separation of concerns allows the ESTN messages to be delivered over [WebSockets](#websockets), [HTTP](#http), [Kafka](#apache-kafka), [Pub/Sub](#pub-sub) or plain old [sockets](#sockets).
